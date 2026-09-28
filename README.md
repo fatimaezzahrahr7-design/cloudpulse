@@ -4,7 +4,7 @@
 
 An interactive simulation exploring cloud infrastructure, distributed systems, and security — built by [Fatimaezzahra Hrimech](https://github.com/fatimaezzahrahr7-design) as a hands-on way to understand how cloud systems work, respond to incidents, and recover.
 
-🔗 **Live demo:** _add your deployed link here_
+🔗 **Live demo:**    https://fatimaezzahrahr7-design.github.io/cloudpulse/
 
 ---
 
