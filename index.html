@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudPulse — Visualizing the pulse of the cloud</title>
+  <meta name="description" content="An interactive simulation of cloud infrastructure, distributed systems, and security, by Fatimaezzahra Hrimech." />
+
+  <!-- Google Fonts: Space Grotesk for headings/wordmark, Inter for body & data -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HERO
+  ============================================================= -->
+  <header class="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Cloud infrastructure &amp; security simulation</p>
+      <h1 class="hero__wordmark">CloudPulse</h1>
+      <p class="hero__tagline">Visualizing the pulse of the cloud.</p>
+      <p class="hero__description">
+        An interactive simulation exploring how traffic moves through
+        distributed cloud infrastructure, and how systems detect,
+        respond to, and recover from spikes, anomalies, and outages.
+      </p>
+      <p class="hero__credit">Created by <span>Fatimaezzahra Hrimech</span></p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         COMMAND CENTER
+    ============================================================= -->
+    <section class="command-center" aria-labelledby="command-center-heading">
+      <div class="command-center__status">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>Simulation active</span>
+        <span class="command-center__note">Synthetic data · educational simulation</span>
+      </div>
+
+      <h2 id="command-center-heading" class="visually-hidden">Live metrics</h2>
+
+      <dl class="metrics">
+        <div class="metrics__item">
+          <dt>Requests / sec</dt>
+          <dd data-metric="requests">1,284</dd>
+        </div>
+        <div class="metrics__item">
+          <dt>Active regions</dt>
+          <dd data-metric="regions">08</dd>
+        </div>
+        <div class="metrics__item">
+          <dt>Avg latency</dt>
+          <dd data-metric="latency">142 ms</dd>
+        </div>
+        <div class="metrics__item">
+          <dt>Threats detected</dt>
+          <dd data-metric="threats">03</dd>
+        </div>
+        <div class="metrics__item">
+          <dt>Availability</dt>
+          <dd data-metric="availability">99.97%</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ============================================================
+         SIMULATION CONTROLS
+    ============================================================= -->
+    <section class="controls" aria-labelledby="controls-heading">
+      <h2 id="controls-heading" class="visually-hidden">Simulation controls</h2>
+
+      <div class="controls__group">
+        <button type="button" class="btn" data-action="start">Start</button>
+        <button type="button" class="btn" data-action="pause">Pause</button>
+        <button type="button" class="btn" data-action="reset">Reset</button>
+      </div>
+
+      <div class="controls__group">
+        <button type="button" class="btn btn--incident" data-action="spike">Simulate traffic spike</button>
+        <button type="button" class="btn btn--incident" data-action="suspicious">Simulate suspicious activity</button>
+        <button type="button" class="btn btn--incident" data-action="outage">Simulate outage</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GLOBAL CLOUD VISUALIZATION
+    ============================================================= -->
+    <section class="global-map" aria-labelledby="global-map-heading">
+      <h2 id="global-map-heading">Global traffic</h2>
+      <p class="section-intro">
+        Simulated request traffic moving between eight regional nodes.
+        Click a region to inspect its status, request volume, and
+        security events.
+      </p>
+      <div class="global-map__canvas" data-map-mount>
+        <p class="placeholder-note">World map renders here — coming in map.js</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LIVE EVENT STREAM
+    ============================================================= -->
+    <section class="event-stream" aria-labelledby="event-stream-heading">
+      <h2 id="event-stream-heading">Event stream</h2>
+      <ul class="event-stream__list" data-event-mount>
+        <li class="event event--system">
+          <span class="event__time">12:31:04</span>
+          <span class="event__type">Request</span>
+          <span class="event__detail">Morocco → Europe edge</span>
+        </li>
+        <li class="event event--anomaly">
+          <span class="event__time">12:31:06</span>
+          <span class="event__type">Anomaly</span>
+          <span class="event__detail">Unusual request pattern detected</span>
+        </li>
+        <li class="event event--blocked">
+          <span class="event__time">12:31:09</span>
+          <span class="event__type">Blocked</span>
+          <span class="event__detail">Suspicious request blocked</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         CLOUD ARCHITECTURE
+    ============================================================= -->
+    <section class="architecture" aria-labelledby="architecture-heading">
+      <h2 id="architecture-heading">Cloud architecture</h2>
+      <p class="section-intro">
+        How a request travels from a user's device to storage and back —
+        and where security controls sit along the way. Click a layer to
+        learn what it does, why it exists, and what happens if it fails.
+      </p>
+      <div class="architecture__diagram" data-architecture-mount>
+        <p class="placeholder-note">Architecture diagram renders here — coming in architecture.js</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BUILD YOUR CLOUD
+         Visitor picks options, we generate a simple diagram and
+         simulated indicators. All estimates are illustrative —
+         never presented as real benchmarks.
+    ============================================================= -->
+    <section class="builder" aria-labelledby="builder-heading">
+      <h2 id="builder-heading">Build your cloud</h2>
+      <p class="section-intro">
+        Choose a compute, database, storage, and security option to see
+        a generated architecture and simulated indicators. These are
+        educational estimates, not production benchmarks.
+      </p>
+
+      <div class="builder__layout">
+        <form class="builder__form" data-builder-form>
+          <fieldset>
+            <legend>Compute</legend>
+            <label><input type="radio" name="compute" value="serverless" checked> Serverless</label>
+            <label><input type="radio" name="compute" value="container"> Container</label>
+            <label><input type="radio" name="compute" value="vm"> Virtual machine</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Database</legend>
+            <label><input type="radio" name="database" value="sql" checked> SQL</label>
+            <label><input type="radio" name="database" value="nosql"> NoSQL</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Storage</legend>
+            <label><input type="radio" name="storage" value="object" checked> Object storage</label>
+            <label><input type="radio" name="storage" value="block"> Block storage</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Security</legend>
+            <label><input type="checkbox" name="security" value="auth" checked> Authentication</label>
+            <label><input type="checkbox" name="security" value="rateLimiting" checked> Rate limiting</label>
+            <label><input type="checkbox" name="security" value="encryption"> Encryption</label>
+            <label><input type="checkbox" name="security" value="monitoring"> Monitoring</label>
+          </fieldset>
+        </form>
+
+        <div class="builder__output" data-builder-output></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FATIMAEZZAHRA'S LAB
+    ============================================================= -->
+    <section class="lab" aria-labelledby="lab-heading">
+      <h2 id="lab-heading">Fatimaezzahra's cloud lab</h2>
+      <p class="lab__intro">
+        CloudPulse is my exploration of how cloud infrastructure, security,
+        and distributed systems work together. I built it to understand
+        these systems by simulating them, not just reading about them.
+      </p>
+      <div class="lab__topics">
+        <h3>What I'm exploring</h3>
+        <ul>
+          <li>Cloud architecture</li>
+          <li>Cybersecurity</li>
+          <li>Distributed systems</li>
+          <li>Serverless computing</li>
+          <li>Infrastructure monitoring</li>
+          <li>Resilience</li>
+          <li>Secure digital infrastructure</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       ABOUT THE CREATOR
+  ============================================================= -->
+  <section class="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">Built by</h2>
+    <p class="about__name">Fatimaezzahra Hrimech</p>
+    <p class="about__description">
+      Moroccan student exploring cloud computing, cybersecurity, and
+      secure digital infrastructure.
+    </p>
+    <ul class="about__links">
+      <li><a href="https://github.com/fatimaezzahrahr7-design" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/fatimaezzahra-hrimech-7b2518422/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="#">Portfolio</a></li>
+    </ul>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="footer">
+    <p>CloudPulse — an interactive cloud infrastructure simulation.</p>
+    <p>Built by Fatimaezzahra Hrimech · © 2026</p>
+    <p class="footer__note">Synthetic data. Educational simulation.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
